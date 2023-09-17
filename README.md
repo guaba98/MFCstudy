@@ -26,5 +26,5 @@ C++ MFC 라이브러리 기반 공부
   - 영상 공부 정리 블로그 링크: https://giveme-happyending.tistory.com/214
   - 실행 파일: mfcBitmapBtn/mfcBitmapBtn.sln
 
-  ### 실행 화면
-  ![버튼 결과](https://github.com/guaba98/MFCstudy/assets/121913371/26bfb1a6-cc30-4ff4-b2af-1474afcbbce3)
+    ### 실행 화면
+    ![버튼 결과](https://github.com/guaba98/MFCstudy/assets/121913371/26bfb1a6-cc30-4ff4-b2af-1474afcbbce3)
