@@ -1,15 +1,9 @@
 # MFCstudy
 C++ MFC 라이브러리 기반 공부
 
-## 🛠️ 개발 환경
-- 운영체제: Window 10 64 bit
-- 개발언어: C++ 
-- 개발 툴: Visual Studio Community 2022 (64-bit)
-- 추가 패키지: MFC 구성요소
----
 ## 목차
-- [MFCstudy](#mfcstudy)
-  * [🛠️ 개발 환경](#---------)
+- [MFCstudy]([#mfcstudy](https://github.com/guaba98/MFCstudy#mfcstudy))
+  * [🛠️ 개발 환경]([#---------](https://github.com/guaba98/MFCstudy#%EF%B8%8F-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD))
   * [1. C++ MFC 기반 간단한 계산기 만들기](#1-c---mfc---------------)
     + [실행 화면](#-----)
   * [2. C++ MFC 기반 움직이는 원 만들기](#2-c---mfc--------------)
@@ -17,8 +11,13 @@ C++ MFC 라이브러리 기반 공부
   * [3. C++ MFC 기반 클릭 버튼 만들기](#3-c---mfc-------------)
     + [실행 화면](#------2)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+---
 
+## 🛠️ 개발 환경
+- 운영체제: Window 10 64 bit
+- 개발언어: C++ 
+- 개발 툴: Visual Studio Community 2022 (64-bit)
+- 추가 패키지: MFC 구성요소
 
 ## 1. C++ MFC 기반 간단한 계산기 만들기
 
