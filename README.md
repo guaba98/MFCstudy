@@ -9,7 +9,7 @@ C++ MFC 라이브러리 기반 공부
 
 ## 1. C++ MFC 기반 간단한 계산기 만들기
 
-- 영상 정리 블로그 링크: [계산기 만들기](https://giveme-happyending.tistory.com/212)
+- 영상 정리 블로그 링크: [소연의 개발일지_계산기 만들기](https://giveme-happyending.tistory.com/212)
 - 실행파일: MFCstart/start.cin
   
   ### 실행 화면
