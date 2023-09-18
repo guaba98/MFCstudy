@@ -13,11 +13,15 @@ public:
 
 	CImage m_image;
 	CWnd* m_pParent;
+	int m_nDataCount = 0; // 몇개를 그릴 것인지
+	CPoint m_ptData[100]; // 배열(좌표값)
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_DLGIMAGE };
 #endif
+private:
+	void datwData(CDC* pDC);
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
@@ -27,5 +31,6 @@ public:
 	afx_msg void OnBnClickedBtnUpParent();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
+
 	void initImage();
 };

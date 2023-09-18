@@ -63,15 +63,15 @@ BOOL CDlgImage::OnInitDialog()
 }
 
 
-
+// 그리기 메서드
 void CDlgImage::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
-	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
-	// 그리기 메시지에 대해서는 CDialogEx::OnPaint()을(를) 호출하지 마십시오.
 	if (m_image) {
 		m_image.Draw(dc, 0, 0); //dc에, (0, 0) 에 그릴것이다.
 	}
+
+	datwData(&dc);
 }
 
 // 이미지 초기화 부분
@@ -92,4 +92,21 @@ void CDlgImage::initImage() {
 	unsigned char* fm = (unsigned char*)m_image.GetBits();
 
 	memset(fm, 0xff, nWidth * nHeight);
+}
+
+void CDlgImage::datwData(CDC* pDC) 
+{
+	CRect rect;
+	CPen pen; // 선 객체 생성
+	pen.CreatePen(PS_SOLID, 1, RGB(0xff, 0, 0)); // 실선, 두께, 빨간색
+	CPen* pOldPen = pDC->SelectObject(&pen); // 현재 펜 저장
+
+	for (int i = 0; i < m_nDataCount; i++) {
+		rect.SetRect(m_ptData[i], m_ptData[i]);  // 좌표값 설정
+		rect.InflateRect(5, 10); // 좌로 5만큼, 우로 10만큼 벌린다
+		pDC->Ellipse(rect); //원을 그린다
+
+	}
+
+	pDC->SelectObject(pOldPen); // 저장해 둔 펜 가져오기
 }

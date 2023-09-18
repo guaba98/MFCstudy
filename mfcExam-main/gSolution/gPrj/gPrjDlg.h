@@ -38,7 +38,7 @@ protected:
 public:
 //	afx_msg void OnBnClickedBtnDlg();
 	afx_msg void OnDestroy();
-
+	
 	void callFunc(int n);
 	afx_msg void OnBnClickedBtnTest();
 };

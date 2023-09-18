@@ -101,6 +101,8 @@ BOOL CgPrjDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+
+	// 클래스 생성
 	MoveWindow(0, 0, 1280, 800);
 	m_pDlgImage = new CDlgImage;
 	m_pDlgImage->Create(IDD_DLGIMAGE, this);
@@ -169,7 +171,8 @@ void CgPrjDlg::OnDestroy()
 {
 	CDialogEx::OnDestroy();
 
-	delete m_pDlgImage;
+	if(m_pDlgImage) delete m_pDlgImage;
+	if(m_pDlgImgResult) delete m_pDlgImgResult;
 }
 
 #include <iostream>
@@ -191,6 +194,9 @@ void CgPrjDlg::OnBnClickedBtnTest()
 	int nHeight = m_pDlgImage->m_image.GetHeight(); // 세로
 	int nPitch = m_pDlgImage->m_image.GetPitch(); // 픽셀마다 행 간격을 나타내는 값
 
+	// 값 리셋
+	memset(fm, 0xff, nWidth * nHeight);
+
 	// 점찍기
 	for (int k = 0; k < 100; k++) {
 		int x = rand() % nWidth;
@@ -198,25 +204,30 @@ void CgPrjDlg::OnBnClickedBtnTest()
 		fm[y * nPitch + x] = 0;
 	}
 
-	
-	// 점 갯수 세기
-	int nSum = 0; // 합을 셀 변수 설정
-	for (int j = 0; j < nHeight;j++) {
+	// 인덱스 값 변수 선언(초기값 0)
+	int nIndex = 0; 
+
+	// 찍힌 점의 좌표를 m_ptData 배열에 저장
+	// 모든 픽셀을 탐지하기 위한 이중 for문: 너비만큼, 높이만큼 반복: (i, j)는 픽셀의 (x, y)에 해당
+	for (int j = 0; j < nHeight;j++) { 
 		for (int i = 0; i < nWidth; i++) {
-			if (fm[j * nPitch + i] == 0) {
-				cout << nSum << ":" << i << "," << j << endl; // 찍힌 좌표 출력
-				nSum++;
-			}	
+			if (fm[j * nPitch + i] == 0) { // 좌표의 픽셀 값이 0인지(점이 찍혀 있는지) 확인
+				// 찍힌 점을 찾았다면, 그 점의 좌표를 m_ptData 배열에 저장함
+				if (m_pDlgImgResult->m_nDataCount <= 100) { // 먼저 m_nDataCount가 100 이하인지 확인(배열의 크기가 100이므로)
+					m_pDlgImgResult->m_ptData[nIndex].x = i; // 찾은 점의 x 좌표를 배열에 저장
+					m_pDlgImgResult->m_ptData[nIndex].y = j; // 찾은 점의 y 좌표를 배열에 저장
+					// m_nDataCount 값을 1씩 증가시키며, 동시에 nIndex값을 1 증가시킨다. (++nIndex의 결과는 nIndex 증가 후의 값이므로)
+					m_pDlgImgResult->m_nDataCount = ++nIndex; 
+				}	
+			}
 		}
 	}
-
-	// 갯수 출력
-	
 
 	// 이미지 잘 가져왔는지 테스트
 	// 뒤의 숫자는 얼만큼 칠할것인지
 	// memset(fm, 0, 640 * 480); // 메모리셋에 fm(이미지포인터), 뒤에오는 것은 값: 
 
 	// 화면에 업데이트
-	m_pDlgImage->Invalidate();
+	m_pDlgImage->Invalidate(); // 왼쪽 화면 업데이트
+	m_pDlgImgResult->Invalidate(); // 오른쪽 화면 업데이트
 }
