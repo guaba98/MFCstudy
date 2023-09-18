@@ -45,7 +45,9 @@ C++ MFC 라이브러리 기반 공부
    ![버튼 결과](https://github.com/guaba98/MFCstudy/assets/121913371/26bfb1a6-cc30-4ff4-b2af-1474afcbbce3)
 
 ## 4. 모달리스 다이얼로그 생성하기
- - 영상 공부 정리 블로그 링크: [소연의 개발일지_모달리스 다이얼로그 생성하기](https://giveme-happyending.tistory.com/217)
+ - 영상 공부 정리 블로그 링크:
+   + [모달리스 다이얼로그 생성하기](https://giveme-happyending.tistory.com/217)
+   + [듀얼이미지 다이얼로그](https://giveme-happyending.tistory.com/218)
  - 실행 파일: mfcExam-main/gSolution/gSolution.sln
 
    
