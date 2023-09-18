@@ -67,8 +67,9 @@ BEGIN_MESSAGE_MAP(CmfcexamDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON1, &CmfcexamDlg::OnBnClickedButton1)
+	
 	ON_WM_DESTROY()
+	ON_BN_CLICKED(IDC_BTN_TEST, &CmfcexamDlg::OnBnClickedBtnTest)
 END_MESSAGE_MAP()
 
 
@@ -104,9 +105,18 @@ BOOL CmfcexamDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	MoveWindow(0, 0, 1280, 800);
 	m_pDlgImage = new CDlgImage;
 	m_pDlgImage->Create(IDD_CDlgImage, this);
 	m_pDlgImage->ShowWindow(SW_SHOW);
+	m_pDlgImage->MoveWindow(0, 0, 640, 480);
+
+	// 같은 방식으로 추가해 줌
+	m_pDlgImageResult = new CDlgImage;
+	m_pDlgImageResult->Create(IDD_CDlgImage, this);
+	m_pDlgImageResult->ShowWindow(SW_SHOW);
+	m_pDlgImageResult->MoveWindow(640, 0, 640, 480);
+
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -162,10 +172,10 @@ HCURSOR CmfcexamDlg::OnQueryDragIcon()
 
 
 
-void CmfcexamDlg::OnBnClickedButton1()
-{
-	m_pDlgImage->ShowWindow(SW_SHOW);
-}
+//void CmfcexamDlg::OnBnClickedButton1()
+//{
+//	m_pDlgImage->ShowWindow(SW_SHOW);
+//}
 
 
 
@@ -183,4 +193,12 @@ void CmfcexamDlg::callFunc(int n)
 {
 	// int nData = n;
 	std::cout << n << std::endl;
+}
+
+void CmfcexamDlg::OnBnClickedBtnTest()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	// 이미지에 대한 포인터를 가져오기
+	unsigned char* fm = m_pDlgImage->m_image.GetBits();
+	 
 }
