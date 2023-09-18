@@ -13,7 +13,8 @@ class CgPrjDlg : public CDialogEx
 public:
 	CgPrjDlg(CWnd* pParent = NULL);	// 표준 생성자입니다.
 
-	CDlgImage *m_pDlgImage; 
+	CDlgImage *m_pDlgImage; // 이미지 그릴 창 변수 생성
+	CDlgImage *m_pDlgImgResult; // 복사할 창 변수 생성
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
@@ -35,8 +36,9 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedBtnDlg();
+//	afx_msg void OnBnClickedBtnDlg();
 	afx_msg void OnDestroy();
 
 	void callFunc(int n);
+	afx_msg void OnBnClickedBtnTest();
 };

@@ -65,8 +65,8 @@ BEGIN_MESSAGE_MAP(CgPrjDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BTN_DLG, &CgPrjDlg::OnBnClickedBtnDlg)
 	ON_WM_DESTROY()
+	ON_BN_CLICKED(IDC_BTN_TEST, &CgPrjDlg::OnBnClickedBtnTest)
 END_MESSAGE_MAP()
 
 
@@ -101,9 +101,16 @@ BOOL CgPrjDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	MoveWindow(0, 0, 1280, 800);
 	m_pDlgImage = new CDlgImage;
 	m_pDlgImage->Create(IDD_DLGIMAGE, this);
 	m_pDlgImage->ShowWindow(SW_SHOW);
+	m_pDlgImage->MoveWindow(0, 0, 640, 480);
+
+	m_pDlgImgResult = new CDlgImage;
+	m_pDlgImgResult->Create(IDD_DLGIMAGE, this);
+	m_pDlgImgResult->ShowWindow(SW_SHOW);
+	m_pDlgImgResult->MoveWindow(640, 0, 640, 480);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -157,15 +164,7 @@ HCURSOR CgPrjDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-void CgPrjDlg::OnBnClickedBtnDlg()
-{
-	/*CDlgImage dlg;
-	dlg.DoModal();*/
-	m_pDlgImage->ShowWindow(SW_SHOW);
-}
-
-// 메모리 릭을 막기 위해 생성된 m_pDlgImage을 삭제해 준다.
+// 메모리 릭을 막기 위해 생성된 
 void CgPrjDlg::OnDestroy()
 {
 	CDialogEx::OnDestroy();
@@ -177,5 +176,47 @@ void CgPrjDlg::OnDestroy()
 void CgPrjDlg::callFunc(int n)
 {
 //	int nData = n;
-	std::cout << n << std::endl; //endl은 줄바꿈
+	std::cout << n << std::endl;
+}
+using namespace std;
+
+void CgPrjDlg::OnBnClickedBtnTest()
+{
+	// 이미지 가져오기 
+	// 화살표(->)는 포인터, 점(.)은 클래스를 의미
+	unsigned char* fm = (unsigned char*)m_pDlgImage->m_image.GetBits(); // 리턴값을 unsigned cha로 받는다는 뜻
+	
+	// 가로 세로 피치 값 가져오기
+	int nWidth = m_pDlgImage->m_image.GetWidth(); // 가로
+	int nHeight = m_pDlgImage->m_image.GetHeight(); // 세로
+	int nPitch = m_pDlgImage->m_image.GetPitch(); // 픽셀마다 행 간격을 나타내는 값
+
+	// 점찍기
+	for (int k = 0; k < 100; k++) {
+		int x = rand() % nWidth;
+		int y = rand() % nHeight;
+		fm[y * nPitch + x] = 0;
+	}
+
+	
+	// 점 갯수 세기
+	int nSum = 0; // 합을 셀 변수 설정
+	for (int j = 0; j < nHeight;j++) {
+		for (int i = 0; i < nWidth; i++) {
+			if (fm[j * nPitch + i] == 0) {
+				cout << nSum << ":" << i << "," << j << endl; // 찍힌 좌표 출력
+				nSum++;
+			}	
+		}
+	}
+
+	// 갯수 출력
+	
+
+	// 이미지 잘 가져왔는지 테스트
+	// 뒤의 숫자는 얼만큼 칠할것인지
+	// memset(fm, 0, 640 * 480); // 메모리셋에 fm(이미지포인터), 뒤에오는 것은 값: 
+
+	// 화면에 업데이트
+	m_pDlgImage->Invalidate();
 }
