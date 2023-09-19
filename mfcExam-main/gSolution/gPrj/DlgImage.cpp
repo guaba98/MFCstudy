@@ -94,16 +94,17 @@ void CDlgImage::initImage() {
 	memset(fm, 0xff, nWidth * nHeight);
 }
 
+#define COLOR_RED RGB(255, 0, 0)
 void CDlgImage::datwData(CDC* pDC) 
 {
 	CRect rect;
 	CPen pen; // ¼± °´Ã¼ »ý¼º
-	pen.CreatePen(PS_SOLID, 1, RGB(0xff, 0, 0)); // ½Ç¼±, µÎ²², »¡°£»ö
+	pen.CreatePen(PS_SOLID, 5, COLOR_RED); // ½Ç¼±, µÎ²², »¡°£»ö
 	CPen* pOldPen = pDC->SelectObject(&pen); // ÇöÀç Ææ ÀúÀå
 
 	for (int i = 0; i < m_nDataCount; i++) {
 		rect.SetRect(m_ptData[i], m_ptData[i]);  // ÁÂÇ¥°ª ¼³Á¤
-		rect.InflateRect(5, 10); // ÁÂ·Î 5¸¸Å­, ¿ì·Î 10¸¸Å­ ¹ú¸°´Ù
+		rect.InflateRect(2, 2); // ÁÂ·Î 2¸¸Å­, ¿ì·Î 2¸¸Å­ ¹ú¸°´Ù
 		pDC->Ellipse(rect); //¿øÀ» ±×¸°´Ù
 
 	}
