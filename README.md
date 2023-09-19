@@ -52,4 +52,7 @@ C++ MFC 라이브러리 기반 공부
    + [여러 조건 변경하기](https://giveme-happyending.tistory.com/220)
  - 실행 파일: mfcExam-main/gSolution/gSolution.sln
 
+    ### 실행 화면
+   ![점찍기](https://github.com/guaba98/MFCstudy/assets/121913371/b0f6daaf-eb58-4bdc-aab5-8fb8c5a9601a)
+
    
