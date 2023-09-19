@@ -49,6 +49,7 @@ C++ MFC 라이브러리 기반 공부
    + [모달리스 다이얼로그 생성하기](https://giveme-happyending.tistory.com/217)
    + [듀얼이미지 다이얼로그](https://giveme-happyending.tistory.com/218)
    + [다른 윈도우로 포인트 복제하기](https://giveme-happyending.tistory.com/219)
+   + [여러 조건 변경하기](https://giveme-happyending.tistory.com/220)
  - 실행 파일: mfcExam-main/gSolution/gSolution.sln
 
    
