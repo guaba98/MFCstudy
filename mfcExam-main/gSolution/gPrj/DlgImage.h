@@ -1,5 +1,5 @@
 #pragma once
-
+#define MAX_POINT 100
 
 // CDlgImage 대화 상자입니다.
 
@@ -14,7 +14,7 @@ public:
 	CImage m_image;
 	CWnd* m_pParent;
 	int m_nDataCount = 0; // 몇개를 그릴 것인지
-	CPoint m_ptData[100]; // 배열(좌표값)
+	CPoint m_ptData[MAX_POINT]; // 배열(좌표값)
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME

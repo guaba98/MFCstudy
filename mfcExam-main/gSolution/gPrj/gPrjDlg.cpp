@@ -193,12 +193,12 @@ void CgPrjDlg::OnBnClickedBtnTest()
 	int nWidth = m_pDlgImage->m_image.GetWidth(); // 가로
 	int nHeight = m_pDlgImage->m_image.GetHeight(); // 세로
 	int nPitch = m_pDlgImage->m_image.GetPitch(); // 픽셀마다 행 간격을 나타내는 값
-
+	int nMax = 100;
 	// 값 리셋
 	memset(fm, 0, nWidth * nHeight);
 
 	// 점찍기
-	for (int k = 0; k < 100; k++) {
+	for (int k = 0; k < nMax; k++) {
 		int x = rand() % nWidth;
 		int y = rand() % nHeight;
 		fm[y * nPitch + x] = rand()%0xff; // 각각의 밝기에 대해서 255(0xff)로 나눠준다.
@@ -213,7 +213,7 @@ void CgPrjDlg::OnBnClickedBtnTest()
 		for (int i = 0; i < nWidth; i++) {
 			if (fm[j * nPitch + i] != 0) { // 좌표의 픽셀 값이 0인지(점이 찍혀 있는지) 확인
 				// 찍힌 점을 찾았다면, 그 점의 좌표를 m_ptData 배열에 저장함
-				if (m_pDlgImgResult->m_nDataCount < 100) { // 먼저 m_nDataCount가 100 이하인지 확인(배열의 크기가 100이므로)
+				if (m_pDlgImgResult->m_nDataCount <= nMax) { // 먼저 m_nDataCount가 100 이하인지 확인(배열의 크기가 100이므로)
 					cout << nIndex << ":" << i << "," << j << endl; // 찍힌 점의 갯수 세기
 					m_pDlgImgResult->m_ptData[nIndex].x = i; // 찾은 점의 x 좌표를 배열에 저장
 					m_pDlgImgResult->m_ptData[nIndex].y = j; // 찾은 점의 y 좌표를 배열에 저장

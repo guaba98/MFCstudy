@@ -94,12 +94,14 @@ void CDlgImage::initImage() {
 	memset(fm, 0xff, nWidth * nHeight);
 }
 
-#define COLOR_RED RGB(255, 0, 0)
+#define COLOR_RED   RGB(0xff, 0x00, 0x00)
+#define COLOR_GREEN RGB(0x00, 0xff, 0x00)
+#define COLOR_BLUE  RGB(0x00, 0x00, 0xff)
 void CDlgImage::datwData(CDC* pDC) 
 {
 	CRect rect;
 	CPen pen; // 선 객체 생성
-	pen.CreatePen(PS_SOLID, 5, COLOR_RED); // 실선, 두께, 빨간색
+	pen.CreatePen(PS_SOLID, 5, COLOR_BLUE); // 실선, 두께, 빨간색
 	CPen* pOldPen = pDC->SelectObject(&pen); // 현재 펜 저장
 
 	for (int i = 0; i < m_nDataCount; i++) {
