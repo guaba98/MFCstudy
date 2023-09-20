@@ -15,6 +15,7 @@ public:
 
 	CDlgImage *m_pDlgImage;
 	CDlgImage *m_pDlgImgResult;
+	CString m_strRadius;
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
@@ -32,7 +33,6 @@ protected:
 	// 생성된 메시지 맵 함수
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
-	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
@@ -46,4 +46,7 @@ public:
 	afx_msg void OnBnClickedBtnGetData();
 	afx_msg void OnBnClickedBtnThread();
 	int processImg(CRect rect);
+	CEdit mEdit;
+	BOOL vaildImgPos(int x, int y);
+
 };

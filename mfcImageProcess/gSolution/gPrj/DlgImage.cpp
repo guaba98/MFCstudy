@@ -56,13 +56,15 @@ BOOL CDlgImage::OnInitDialog()
 				  // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
 }
 
+// 이미지 초기화 부분
 void CDlgImage::InitImage()
-{
-	int nWidth = 4096 * 8;
-	int nHeight = 4096 * 8;
-	int nBpp = 8;
+{	
+	// 이미지 크기를 변경시킨다. 
+	int nWidth = 640; 
+	int nHeight = 480;
+	int nBpp = 24; // !! 24비트로 변경(원래 8)
 
-	m_image.Create(nWidth, -nHeight, nBpp);
+	/*m_image.Create(nWidth, -nHeight, nBpp);
 	if (nBpp == 8) {
 		static RGBQUAD rgb[256];
 		for (int i = 0; i < 256; i++)
@@ -73,7 +75,15 @@ void CDlgImage::InitImage()
 	int nPitch = m_image.GetPitch();
 	unsigned char* fm = (unsigned char*)m_image.GetBits();
 
-	memset(fm, 0xff, nWidth*nHeight);
+	memset(fm, 0xff, nWidth*nHeight);*/
+
+	m_image.Create(nWidth, -nHeight, nBpp);
+
+	int nPitch = m_image.GetPitch();
+	unsigned char* fm = (unsigned char*)m_image.GetBits();
+
+	// 초기화를 흰색으로 (R,G,B 모두 255)
+	memset(fm, 0xFF, nWidth * nHeight * 3); // 3: RGB 각각에 대해
 }
 
 
