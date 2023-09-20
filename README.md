@@ -13,6 +13,8 @@ C++ MFC 라이브러리 기반 공부
     + [실행 화면](https://github.com/guaba98/MFCstudy#%EC%8B%A4%ED%96%89-%ED%99%94%EB%A9%B4-2)
   * [4. 모달리스 다이얼로그 생성하기](https://github.com/guaba98/MFCstudy#4-%EB%AA%A8%EB%8B%AC%EB%A6%AC%EC%8A%A4-%EB%8B%A4%EC%9D%B4%EC%96%BC%EB%A1%9C%EA%B7%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0)
     + [실행 화면](https://github.com/guaba98/MFCstudy/blob/master/README.md#%EC%8B%A4%ED%96%89-%ED%99%94%EB%A9%B4-3)
+   + [5. 사용자 입력에 따라 원 랜덤 생성]()
+     + [실행 화면]()
 
 ---
 
@@ -55,5 +57,10 @@ C++ MFC 라이브러리 기반 공부
 
     ### 실행 화면
    ![점찍기](https://github.com/guaba98/MFCstudy/assets/121913371/b0f6daaf-eb58-4bdc-aab5-8fb8c5a9601a)
-
+   
+## 5. 사용자 입력에 따라 원 랜덤 생성
+ - 실행 파일: mfcImageProcess/gSolution/gSolution.sln
+    ### 실행 화면
+   ![원 랜덤 이동](https://github.com/guaba98/MFCstudy/assets/121913371/11252f09-59a0-4d7e-91a1-d76bfd9aafa0)
+   
    
