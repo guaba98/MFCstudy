@@ -62,6 +62,7 @@ C++ MFC 라이브러리 기반 공부
  - 실행 파일: mfcImageProcess/gSolution/gSolution.sln
  - 영상 공부 정리 블로그 링크:
    + [쓰레드 생성, 이미지에서 픽셀 갯수 세기](https://giveme-happyending.tistory.com/225)
+   + [다이얼로그에 원 그리기](https://giveme-happyending.tistory.com/223)
    + [c++ 프로세스, 쓰레드 개념 정리](https://giveme-happyending.tistory.com/224)
    
     ### 실행 화면
