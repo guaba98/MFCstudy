@@ -60,6 +60,10 @@ C++ MFC 라이브러리 기반 공부
    
 ## 5. 사용자 입력에 따라 원 랜덤 생성
  - 실행 파일: mfcImageProcess/gSolution/gSolution.sln
+ - 영상 공부 정리 블로그 링크:
+   + [쓰레드 생성, 이미지에서 픽셀 갯수 세기](https://giveme-happyending.tistory.com/225)
+   + [c++ 프로세스, 쓰레드 개념 정리](https://giveme-happyending.tistory.com/224)
+   
     ### 실행 화면
    ![원 랜덤 이동](https://github.com/guaba98/MFCstudy/assets/121913371/11252f09-59a0-4d7e-91a1-d76bfd9aafa0)
    
